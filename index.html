@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+  <title>PPF_1843</title>
+  <link rel="icon" type="image/x-icon" href="Logos BlueTrail/tenerife-bluetrail-logo-color.ico">
+</head>
+<style>
+  /* Estilos para la notificación */
+  .notificacion {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+  }
+</style>
+</head>
+
+<body>
+
+  <!-- Notificación de límite de inscripciones -->
+  <div id="notificacion-inscripciones" class="notificacion">
+    ¡¡ATENCION!!... SOLO SE PERMITEN UN MAXIMO DE 8 INSCRIPCIONES SIMULTANEAS POR USUARIO.
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Mostrar la notificación cuando se cargue la página
+    window.addEventListener('load', function () {
+      mostrarNotificacion();
+    });
+
+    // Función para mostrar la notificación
+    function mostrarNotificacion() {
+      var notificacion = document.getElementById('notificacion-inscripciones');
+      notificacion.style.display = 'block';
+
+      // Ocultar la notificación después de 8 segundos (8000 milisegundos)
+      setTimeout(function () {
+        notificacion.style.display = 'none';
+      }, 8000);
+    }
+  </script>
+
+  <header>
+    <div class="container">
+      <div id="branding">
+        <a href="https://tenerife.utmb.world/es"><img class="logo"
+            src="Logos BlueTrail/tenerife-bluetrail-logo-color-01.svg" alt="logo" /></a>
+      </div>
+      <nav>
+        <ul>
+
+          <li><a class="current" href="#"> Inicio</a></li>
+          <li><a href="https://tenerife.utmb.world/es/races"> Modalidades</a></li>
+          <li><a href="https://in.register-utmb.world/tenerife-bluetrail-by-utmb-2024"> Inscripción</a></li>
+          <li><a href="https://tenerife.utmb.world/es/news">Noticias</a></li>
+          <li><a href="https://tenerife.utmb.world/es/get-excited/photos">Galeria de fotos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <div id="countdown-container">
+    <div id="countdown"></div>
+  </div>
+  <script>
+    var end = new Date('06/06/2024 9:00 PM');
+
+    var _second = 1000;
+    var _minute = _second * 60;
+    var _hour = _minute * 60;
+    var _day = _hour * 24;
+    var timer;
+
+    function showRemaining() {
+      var now = new Date();
+      var distance = end - now;
+      if (distance < 0) {
+
+        clearInterval(timer);
+        document.getElementById('countdown').innerHTML = 'EXPIRED!';
+
+        return;
+      }
+      var days = Math.floor(distance / _day);
+      var hours = Math.floor((distance % _day) / _hour);
+      var minutes = Math.floor((distance % _hour) / _minute);
+      var seconds = Math.floor((distance % _minute) / _second);
+
+      document.getElementById('countdown').innerHTML = 'Quedan ' + days + ' dias, ';
+      document.getElementById('countdown').innerHTML += hours + ' horas, ';
+      document.getElementById('countdown').innerHTML += minutes + ' minutos y ';
+      document.getElementById('countdown').innerHTML += seconds + ' segundos';
+    }
+
+    timer = setInterval(showRemaining, 1000);
+  </script>
+  <br>
+
+
+  <section id="showcase">
+    <div class="container">
+      <h1>TENERIFE BLUETRAIL By UTMB</h1>
+      <br>
+      <p>Desde el nivel del mar hasta alcanzar los 3.555 metros de altitud en el Teide, el pico más alto de España y el
+        tercer mayor volcán de la Tierra. Bienvenido a Tenerife, la isla que despierta emociones
+        La carrera atraviesa en sus modalidades 110K y 73K el Parque Nacional del Teide, declarado Patrimonio de la
+        Humanidad por la Unesco.La Tenerife Bluetrail by UTMB, que se celebrará del 6 al 8 de junio de 2024, es una de
+        las carreras de montaña más variadas que existen tanto por la diversidad de los paisajes por los que transcurre
+        como por su exigencia técnica.
+        Durante la carrera también puede observarse el fenómeno del ‘mar de nubes’, un impresionante efecto natural
+        creado por los vientos alisios que crean una ilusión desde la cumbre de contemplar un mar tranquilo y esponjoso
+        formado por nubes.
+      </p>
+    </div>
+<br><br>
+  </section>
+  <section id="newsletter">
+    <div class="container">
+      <br>
+      <h1 class=animated-text>¡¡Inscribete sin perder un segundo...no te quedes sin tu plaza!!</h1>
+      <form>
+        <input type="text" id="nombre" name="nombre" placeholder="Introduce tu Nombre" required><br>
+        <input type="email" id="email" name="email" placeholder="Introduce tu Email" required><br>
+        <input type="country" id="country" name="country" placeholder="Introduce tu pais" required><br>
+        <input type="submit" value="Enviar">
+      </form>
+    </div>
+  </section>
+  <div class="ins">
+    <table id="inscritos">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>John Doe</td>
+          <td>john@gmail.com</td>
+          <td>USA</td>
+        </tr>
+        <tr>
+          <td>Michael Addison</td>
+          <td>michael@gmail.com</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>Sam Farmer</td>
+          <td>sam@gmail.com</td>
+          <td>France</td>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí se mostrará la información introducida por el usuario -->
+      </tbody>
+      <!--Table-->
+    </table>
+  </div>
+
+  <div class="bot">
+    <button onclick="exportTableToExcel('inscritos')">Export Table Data To Excel File</button>
+  </div>
+
+  <section id="boxes">
+    <div class="container">
+
+      <div class="box">
+        <img src="img/maraton2.jpg" alt="first" />
+        <h3>MODALIDADES</h3>
+        <p>
+          En Bluetrail tenemos muchas modalidades como Ultra, Trail, Maratón o Family Race. Encuentra la modalidad que
+          más se ajuste a tus gustos <a href="https://tenerife.utmb.world/es/races">aquí.</a>
+        </p>
+      </div>
+
+      <div class="box">
+        <img src="img/maraton1.png" alt="responsive" />
+        <h3>REGLAMENTO 2024</h3>
+        <p>
+          La participación en la carrera por montaña Tenerife Bluetrail 2024 está abierta a todos los corredores que
+          cumplan los requisitos establecidos en <a
+            href="https://tenerife.utmb.world/es/races-runners/runners/regulations">este Reglamento.</a>
+        </p>
+      </div>
+
+      <div class="box">
+        <img src="img/maraton3.jpg" alt="website" />
+        <h3>MATERIAL OBLIGATORIO</h3>
+        <p> El material impuesto por el organizador es un mínimo vital que cada corredor debe adaptar segun sus capacidades.Compruebalo en este <a href="https://res.cloudinary.com/utmb-world/image/upload/v1702996454/tenerife/DOCUMENTOS/Material%20Obligatorio/material_obligatorio_Tenerife_Bluetrail_24_ES_dfba2d0eff.pdf.pdf">enlace.</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <br><br>
+  <div class="video">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/l-ge_2LdzPw?si=k9XyAqhP73ri3A9r"
+      title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <footer>
+    <div class="social">
+      <br>
+      <h3 class="animated">Síguenos en nuestras redes sociales</h3>
+      <br>
+      <div class="social-container">
+        <ul class="social-icons">
+          <!--LOGO INSTAGRAM-->
+          <li><a href="https://www.instagram.com/tenerife_bluetrail/"><i class="fa fa-instagram"></i></a></li>
+          <!--LOGO FACEBOOK-->
+          <li><a href="https://www.facebook.com/TenerifeBluetrail/"><i class="fa fa-facebook"></i></a></li>
+          <!--LOGO TWITTER-->
+          <li><a href="https://twitter.com/TenerifeBlueTra"><i class="fa fa-twitter"></i></a></li>
+          <!--LOGO YOUTUBE-->
+          <li><a href="https://www.youtube.com/@tenerifebluetrail869"><i class="fa fa-youtube"></i></a></li>
+        </ul>
+
+        <p>Raimundo Oliva Sálamo &copy; 2024</p>
+  </footer>
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+    integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+</body>
+
+</html>
